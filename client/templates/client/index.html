@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }} / SF </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="{% static 'CarServiceMain/images/logo.png' %}" alt="" /></span>
+						<h1>Car Service</h1>
+						<p>"Enjoy our service"</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="{% url 'home' %}" class="active">Home</a></li>
+							<li><a href="{% url 'manuals' %}">Manuals</a></li>
+							<li><a href="{% url 'tasks' %}">Tasks</a></li>
+							<li><a href="{% url 'shop' %}">Shop</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Mechanic's Daily Checklist:</h2>
+										</header>
+										<p>
+                                            <b>Safety First: </b><br>
+                                            Wear PPE and follow safety guidelines.
+                                            Keep workspace hazard-free.
+                                            Report safety issues promptly.
+                                            <br>
+                                            <br>
+                                            Quality & Responsibility: <br>
+                                            Prioritize tasks and focus on details.
+                                            Communicate transparently.
+                                            Adhere to schedules and procedures.
+                                            <br>
+                                            <br>
+                                            Company Reputation: <br>
+                                            Maintain professionalism and appearance.
+                                            Provide excellent customer service.
+                                            Uphold quality standards and ethics.</p>
+										<ul class="actions">
+											<li><a href="/tasks/" class="button">Let`s work!</a></li>
+										</ul>
+									</div>
+									<span class="image"><img src="{% static 'CarServiceMain/images/warning.png' %}" alt="" /></span>
+								</div>
+							</section>
+
+
+				<!-- Footer -->
+                        {% include 'client/constant_templates/bottom.html' %}
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>
+
+	</body>
+</html>

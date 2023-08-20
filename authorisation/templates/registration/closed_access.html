@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+        <link rel="stylesheet" href="{% static 'authorisation/css/log_in.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'authorisation/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+                        {%  if user.is_authenticated  %}
+                            <br>
+                            <h5>Oops!</h5>
+                            <p>Access is denied</p>
+                            <p></p>
+
+                        {% else %}
+                            <br>
+                            <h5>Oops!</h5>
+                            <p>Try to log in to use our site with more options</p>
+                            <ul class="actions special">
+                                <a href="{% url 'login' %}" class="button">Log in</a>
+                            </ul>
+                            <p><br></p>
+                        {% endif %}
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+
+
+	</body>
+</html>

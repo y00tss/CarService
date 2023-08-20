@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }} / SF </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/shop.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="{% url 'home' %}">Home</a></li>
+							<li><a href="{% url 'manuals' %}">Manuals</a></li>
+							<li><a href="{% url 'tasks' %}">Tasks</a></li>
+							<li><a href="{% url 'shop' %}" class="active">Shop</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+                <div id="main">
+				    <section id="first" class="main special">
+                        <header class="major">
+                            <h2>Shop</h2>
+                            <a href="#" class="button" data-filter=".all">All items</a>
+                            <a href="#" class="button" data-filter=".fuel">Fuel Filter</a>
+                            <a href="#" class="button" data-filter=".coolant">Coolant</a>
+                            <a href="#" class="button" data-filter=".pressure">Pressure Gauge</a>
+                        </header>
+                            <ul class="features">
+                                {% for item in supplies %}
+                                    {% if item.availability %}
+                                        <li class="{% if item.type_el == 'Fuel Filter' %}fuel{% elif item.type_el == 'Coolant' %}coolant{% elif item.type_el == 'Pressure Gauge' %}pressure{% endif %}">
+                                            <div class="product-image-wrapper">
+                                                <span class="logo"><img src="{{ item.image_item.url }}" alt="" /></span>
+                                            </div>
+                                            <h3>Name: {{ item.el_name }}</h3>
+                                            <h5>Manufacturer: {{ item.company_name }}</h5>
+                                            <p>Amount in stock: {{ item.quantity }}</p>
+                                            <ul>
+                                                <a href="" class="button">Order</a>
+                                            </ul>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                    </section>
+                </div>
+				<!-- Footer -->
+                    {% include 'service/constant_templates/service_contacts.html' %}
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/cataloge.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
+{#            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>#}
+
+	</body>
+</html>

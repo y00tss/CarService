@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>Log in</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+        <link rel="stylesheet" href="{% static 'authorisation/css/log_in.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'authorisation/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					{% include 'constant_templates/header.html' %}
+
+				<!-- Nav -->
+                    {% if user.is_authenticated %}
+                    <nav id="nav">
+						<ul>
+							<li><a href="{% url 'profile' %}" class="active">Profile</a></li>
+						</ul>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+                            <h1>You already in the system</h1>
+                            <p>Go to profile</p><br>
+
+                    {% else %}
+                        <div id="main">
+                            <h1>Log in</h1>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="button">Log in</button>
+                            </form>
+                            <p>Don't have an account? <a href="{% url 'sing' %}">Sign up</a></p>
+                    {% endif %}
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
+	</body>
+</html>

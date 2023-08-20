@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }} / SF</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/slide.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="{% url 'home' %}">Home</a></li>
+							<li><a href="{% url 'manuals' %}" class="active">Manuals</a></li>
+							<li><a href="{% url 'tasks' %}">Tasks</a></li>
+							<li><a href="{% url 'shop' %}">Shop</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+                <div id="main">
+                    <section id="first" class="main special">
+								<header class="major">
+									<h2>Fuel filter change</h2>
+								</header>
+                    </section>
+                    <div class="slideshow-container">
+
+                      <!-- Full-width images with number and caption text -->
+                      <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                            <img src="{% static 'service/images/fuelfilter/1.jpg' %}" style="width:80%">
+                        <div class="">Step 1
+                            <p>Dismiss oil filter</p>
+                        </div>
+
+                      </div>
+
+                      <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                            <img src="{% static 'service/images/fuelfilter/2.jpg' %}" style="width:80%">
+                        <div class="">Step 2
+                            <p>Take new one</p>
+                        </div>
+                      </div>
+
+                      <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                            <img src="{% static 'service/images/fuelfilter/3.jpg' %}" style="width:80%">
+                        <div class="">Step 3
+                            <p>Install new filter</p>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <!-- The dots/circles -->
+                    <div style="text-align:center">
+                      <span class="dot" onclick="currentSlide(1)"></span>
+                      <span class="dot" onclick="currentSlide(2)"></span>
+                      <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+				<!-- Footer -->
+					{% include 'service/constant_templates/service_contacts.html' %}
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/slides.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>
+
+	</body>
+</html>

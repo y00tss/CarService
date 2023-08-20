@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }} </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+        <link rel="stylesheet" href="{% static 'authorisation/css/log_in.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'authorisation/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+                    {% if user.is_authenticated %}
+                        {% include 'constant_templates/header.html' %}
+                        <p>You already in system</p>
+                    <!-- Navigation -->
+                        <nav id="nav">
+                            <ul>
+                                <li><a href="{% url 'profile' %}" class="active">Profile</a></li>
+                            </ul>
+                        </nav>
+                    {% else %}
+                        {% include 'constant_templates/header.html' %}
+                        <p>Log in to enjoy your special deal</p>
+                    <!-- Navigation -->
+                        <nav id="nav">
+                            <ul>
+                                <li><a href="{% url 'login' %}" class="active">Log In</a></li>
+                            </ul>
+                        </nav>
+                    {% endif %}
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>About Us</h2>
+										</header>
+										<p>SF Car Service is a trusted and expert car repair service based in Odesa. Specializing in a wide range of automotive repairs, they offer skilled mechanics and state-of-the-art equipment to ensure your vehicle gets the best care possible. From routine maintenance to complex repairs, SF Car Service is dedicated to getting you back on the road safely and efficiently. With a focus on quality workmanship, transparent pricing, and exceptional customer service, they are the go-to destination for all your car repair needs in Odesa.</p>
+									</div>
+									<span class="image"><img src="{% static 'CarServiceMain/images/factory.jpg' %}" alt="" /></span>
+								</div>
+							</section>
+
+						<!-- Get Started -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Our Staff</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<div class="staff-member">
+                                            <img src="{% static 'CarServiceMain/images/worker1.jpg' %}" alt="Staff Member 3">
+                                        </div>
+										<h3>Alexey Petrov</h3>
+										<p>Alexey is an experienced mechanic with extensive expertise. He is responsible for changing and servicing filters in vehicles. Diligent and detail-oriented, he pays special attention to the quality and precision of his work, making him an indispensable member of the team.</p>
+									</li>
+									<li>
+                                        <div class="staff-member">
+                                            <img src="{% static 'CarServiceMain/images/worker2.jpg' %}" alt="Staff Member 3">
+                                        </div>
+										<h3>Oleksandr Hryhor</h3>
+										<p>Oleksandr is a highly skilled automotive technician with a passion for his work. He specializes in performing engine diagnostics and repairs. His keen attention to detail and problem-solving abilities make him adept at identifying and resolving engine issues. With a strong work ethic and a commitment to delivering quality service, Oleksandr is a valuable member of the team, ensuring that vehicles are in top-notch condition for their owners.</p>
+									</li>
+									<li>
+                                        <div class="staff-member">
+                                            <img src="{% static 'CarServiceMain/images/worker3.jpg' %}" alt="Staff Member 3">
+                                        </div>
+										<h3>Maria Ivanenko</h3>
+										<p>Maria is a professional auto mechanic with extensive knowledge. She is responsible for filling the cooling system with coolant in vehicles. Maria's expertise in different car models allows her to flawlessly perform her duties, ensuring efficient engine cooling and prolonged vehicle performance.</p>
+									</li>
+								</ul>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<script src="https://www.bing.com/api/maps/mapcontrol?key=AhNtSQhz3trUFNaeSraF8neUznpxVyCm7O49wT-XoRM67-PEdJp9f6lwrBlSvPI0&callback=initMap" async defer></script>
+                            <div id="map" style="height: 400px; width: 100%;"></div>
+						</section>
+						<section>
+							<h2>Contacts</h2>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd>43 Velyka Arnautska &bull; Odesa &bull; Ukraine</dd>
+								<dt>Phone</dt>
+								<dd>+ (380) 555-131131</dd>
+								<dt>Email</dt>
+								<dd><a href="mailto:shepel9119@gmail.com">sfcarservice@mail.com</a></dd>
+							</dl>
+						</section>
+						<p class="copyright">&copy;Mykhailo Shepelenko</a></p>
+					</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>
+	</body>
+</html>

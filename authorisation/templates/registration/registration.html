@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>Registration</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'authorisation/css/log_in.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'authorisation/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					{% include 'constant_templates/header.html' %}
+
+				<!-- Nav -->
+                    <nav id="nav">
+                        Registration
+					</nav>
+				<!-- Main -->
+					<div id="main">
+                        <h1>{{ title }}</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <button type="submit" class="button primary small fit">Continue</button>
+                            <p></p>
+                        </form>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }} / SF </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
+        <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/fontawesome-all.min.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="{% url 'home' %}">Home</a></li>
+							<li><a href="{% url 'manuals' %}" class="active">Manuals</a></li>
+							<li><a href="{% url 'tasks' %}">Tasks</a></li>
+							<li><a href="{% url 'shop' %}">Shop</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+                <div id="main">
+				    <section id="first" class="main special">
+								<header class="major">
+									<h2>Manuals</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<span class="logo"><img src="{% static 'service/images/fuelfilter/filter-solid.svg' %}" alt="" /></span>
+										<h3>Fuel oil change</h3>
+                                        <ul>
+										    <a href="fuel/" class="button">Open</a>
+									    </ul>
+									</li>
+									<li>
+										<span class="logo"><img src="{% static 'service/images/pressuretest/gauge-solid.svg' %}" alt="" /></span>
+										<h3>Pressure test</h3>
+                                        <ul>
+										    <a href="pressure/" class="button">Open</a>
+									    </ul>
+									</li>
+									<li>
+										<span class="logo"><img src="{% static 'service/images/cooler/bottle-water-solid.svg' %}" alt="" /></span>
+										<h3>Fill up the cooler</h3>
+                                        <ul>
+                                            <a href="cooler/" class="button">Open</a>
+                                        </ul>
+                                    </li>
+								</ul>
+							</section>
+                    </div>
+				<!-- Footer -->
+					{% include 'service/constant_templates/service_contacts.html' %}
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
+			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
+            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>
+
+	</body>
+</html>
