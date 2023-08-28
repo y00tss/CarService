@@ -54,11 +54,15 @@
                                             <td>{{ task.task_price_equipment }} $</td>
                                             <td>
                                                 {% if task.task_progress %}
-                                                    <form method="post">
-                                                        {% csrf_token %}
-                                                        {{form.as_p}}
-                                                        <button type="submit" class="button primary small fit">Confirm</button>
-                                                    </form>
+                                                    {% if task.task_status %}
+                                                        {{ task.job_price }}
+                                                    {% else %}
+                                                        <form method="post">
+                                                            {% csrf_token %}
+                                                            {{form.as_p}}
+                                                            <button type="submit" class="button primary small fit">Confirm</button>
+                                                        </form>
+                                                    {% endif %}
                                                 {% else %}
                                                     No info $
                                                 {% endif %}

@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from authorisation.decorations import mechanic_required
 from django.shortcuts import render, redirect, get_object_or_404
+
+from service.forms import TaskUpdateForm
 from service.models import ShopSupply
 from django.contrib import messages
 from time import sleep
@@ -78,7 +80,15 @@ def cooler(request):
 def tasks(request):
     tasks_table = Tasks.objects.all()
     task_id = request.POST.get('task_id')
+    user = request.user
     if request.method == 'POST':
+        task = get_object_or_404(Tasks, pk=task_id)
+        form = TaskUpdateForm(request.POST, instance=task)
+        if form.is_valid():
+            task.task_price_job = form.cleaned_data['task_price_job']
+            task.save()
+            return redirect('tasks')
+
         if 'start_task' in request.POST:
             task = get_object_or_404(Tasks, pk=task_id)
             task.task_progress = True
@@ -90,9 +100,13 @@ def tasks(request):
             task.task_status = True
             task.save()
             sleep(1)
+    else:
+        form = TaskUpdateForm()
 
     return render(request, 'service/tasks.html', {
         'title': 'Tasks',
         'tasks': tasks_table,
-        'task_id': task_id})
+        'task_id': task_id,
+        'user': user,
+        'form': form})
 
