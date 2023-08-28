@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from client.models import Tasks
 
 
-# ---------------------------------------------------SHOP---------------------------------------------------
+# ----------------------------------------------------SHOP----------------------------------------------------
 class ShopSupplyModelTestCase(TestCase):
     def setUp(self):
         self.supply = ShopSupply.objects.create(

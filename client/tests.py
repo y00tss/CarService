@@ -57,7 +57,7 @@ class UserguidesImagesModelTest(TestCase):
         self.assertEqual(image.guide, guide)
 
 
-# -------------------------------------------------------Views-------------------------------------------------------
+# --------------------------------------------------------Views--------------------------------------------------------
 
 class ClientViewsTestCase(TestCase):
     def setUp(self):

@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from authorisation.forms import SignUpForm, ProfileEditForm
 
-
+# -------------------------------------------------------Models------------------------------------------------------
 class CustomUserUserModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
