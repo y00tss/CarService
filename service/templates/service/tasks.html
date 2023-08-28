@@ -36,11 +36,11 @@
                             <table class="alt">
                                 <thead>
                                     <tr>
-                                        <th>Id order</th>
+                                        <th>Id</th>
                                         <th>Task name</th>
                                         <th>Description</th>
                                         <th>Equipments</th>
-                                        <th>Job price</th>
+                                        <th>Job</th>
                                         <th>Total</th>
                                         <th>Button</th>
                                     </tr>
@@ -55,16 +55,19 @@
                                             <td>
                                                 {% if task.task_progress %}
                                                     {% if task.task_status %}
-                                                        {{ task.job_price }}
+                                                        {{ task.task_price_job }} $
                                                     {% else %}
                                                         <form method="post">
                                                             {% csrf_token %}
-                                                            {{form.as_p}}
-                                                            <button type="submit" class="button primary small fit">Confirm</button>
-                                                        </form>
+                                                            {{ task.task_price_job }} $
+                                                            <p>Set a price for work</p>
+                                                            {{ form.task_price_job }}
+                                                            <input type="hidden" name="task_id" value="{{ task.id }}">
+                                                            <button type="submit">Update Price</button>
+                                                          </form>
                                                     {% endif %}
                                                 {% else %}
-                                                    No info $
+                                                    No info
                                                 {% endif %}
                                             </td>
                                             <td>{{ task.total_price }}</td>

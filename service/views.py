@@ -85,8 +85,7 @@ def tasks(request):
         task = get_object_or_404(Tasks, pk=task_id)
         form = TaskUpdateForm(request.POST, instance=task)
         if form.is_valid():
-            task.task_price_job = form.cleaned_data['task_price_job']
-            task.save()
+            form.save()
             return redirect('tasks')
 
         if 'start_task' in request.POST:
