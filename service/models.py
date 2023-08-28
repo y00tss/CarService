@@ -8,6 +8,7 @@ class ShopSupply(models.Model):
     company_name = models.CharField('Manufacturer', max_length=50)
     type_el = models.CharField('Category', max_length=50)
     quantity = models.IntegerField('Quantity')
+    price = models.IntegerField('Price', default=0)
     availability = models.BooleanField('Availability', default=True)
     image_item = models.ImageField('Image', default='no_image.jpg', upload_to='service/images/shop/')
 

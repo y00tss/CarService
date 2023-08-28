@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/main.css' %}" />
         <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/workers.css' %}" />
         <link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/fontawesome-all.min.css' %}" />
-        <link rel="stylesheet" href="{% static 'authorisation/css/profile.css' %}" />
 		<noscript><link rel="stylesheet" href="{% static 'CarServiceMain/assets/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -17,7 +16,7 @@
 			<div id="wrapper">
 				<!-- Nav -->
 					<nav id="nav">
-                        {% if user.is_mechanic %}
+						{% if user.is_mechanic %}
 						<ul>
 							<li><a href="{% url 'home' %}">Home</a></li>
 							<li><a href="{% url 'manuals' %}">Manuals</a></li>
@@ -38,33 +37,12 @@
 				<!-- Main -->
                 <div id="main">
                     {% if user.is_authenticated %}
-                        <div class="staff-member">
-                            {% if user.description != '' %}
-                                <span class="logo"><img src="{{ user.avatar.url }}" alt="" /></span>
-                                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-                                {% if user.is_mechanic %}
-                                    <p>Engineer profile</p>
-                                {% endif %}
-                                <div class="card-container">
-                                    <p>{{ user.description }}</p>
-                                </div>
-                            {% elif user.first_name == '' %}
-                                <h3>Your username: {{ user.username }}</h3>
-                                <p>Please, fill up your information below</p>
-                            {% endif %}
-                            <br>
-                            <div class="buttons">
-                                <form method="post" action="">
-                                    {% csrf_token %}
-                                    {{ form.as_p }}
-                                    <a href="{% url 'edit_profile' %}" class="button small">Edit Profile</a>
-                                    {% csrf_token %}
-                                    {{ form.as_p }}
-                                    <a href="{% url 'logout' %}" class="button primary small">Logout</a>
-                                </form>
-                            <br>
-                            </div>
-                        </div>
+                        <section id="first" class="main special">
+                            <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Save changes</button>
+                        </section>
                     {% else %}
                         <section id="first" class="main special">
                             <ul class="features">
@@ -86,8 +64,6 @@
 			<script src="{% static 'CarServiceMain/assets/js/breakpoints.min.js' %}"></script>
 			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
 			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
-            <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
-            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>
 
 	</body>
 </html>

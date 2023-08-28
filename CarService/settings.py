@@ -145,3 +145,5 @@ LOGIN_URL = 'closed_access'
 
 #USER
 AUTH_USER_MODEL = 'authorisation.CustomUserUser'
+
+

@@ -37,7 +37,6 @@
 
 				<!-- Main -->
 					<div id="main">
-
 						<!-- Introduction -->
 							<section id="intro" class="main">
 								<div class="spotlight">
@@ -51,33 +50,21 @@
 								</div>
 							</section>
 
-						<!-- Get Started -->
+						<!-- Service Staff -->
 							<section id="first" class="main special">
 								<header class="major">
 									<h2>Our Staff</h2>
 								</header>
 								<ul class="features">
+                                    {% for items in mechanics %}
 									<li>
 										<div class="staff-member">
-                                            <img src="{% static 'CarServiceMain/images/worker1.jpg' %}" alt="Staff Member 3">
+                                            <img src="{{ items.avatar }}" alt="Staff Member 3">
                                         </div>
-										<h3>Alexey Petrov</h3>
-										<p>Alexey is an experienced mechanic with extensive expertise. He is responsible for changing and servicing filters in vehicles. Diligent and detail-oriented, he pays special attention to the quality and precision of his work, making him an indispensable member of the team.</p>
+										<h3>{{ items.first_name }}{{ items.last_name }}</h3>
+										<p>{{ items.description }}</p>
 									</li>
-									<li>
-                                        <div class="staff-member">
-                                            <img src="{% static 'CarServiceMain/images/worker2.jpg' %}" alt="Staff Member 3">
-                                        </div>
-										<h3>Oleksandr Hryhor</h3>
-										<p>Oleksandr is a highly skilled automotive technician with a passion for his work. He specializes in performing engine diagnostics and repairs. His keen attention to detail and problem-solving abilities make him adept at identifying and resolving engine issues. With a strong work ethic and a commitment to delivering quality service, Oleksandr is a valuable member of the team, ensuring that vehicles are in top-notch condition for their owners.</p>
-									</li>
-									<li>
-                                        <div class="staff-member">
-                                            <img src="{% static 'CarServiceMain/images/worker3.jpg' %}" alt="Staff Member 3">
-                                        </div>
-										<h3>Maria Ivanenko</h3>
-										<p>Maria is a professional auto mechanic with extensive knowledge. She is responsible for filling the cooling system with coolant in vehicles. Maria's expertise in different car models allows her to flawlessly perform her duties, ensuring efficient engine cooling and prolonged vehicle performance.</p>
-									</li>
+                                    {% endfor %}
 								</ul>
 							</section>
 					</div>

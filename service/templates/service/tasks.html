@@ -36,54 +36,62 @@
                             <table class="alt">
                                 <thead>
                                     <tr>
-                                        <th>Client name</th>
-                                        <th>Car</th>
-                                        <th>Comments</th>
-                                        <th>Process</th>
+                                        <th>Id order</th>
+                                        <th>Task name</th>
+                                        <th>Description</th>
+                                        <th>Equipments</th>
+                                        <th>Job price</th>
+                                        <th>Total</th>
+                                        <th>Button</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Item One</td>
-                                        <td>Ante turpis integer aliquet porttitor.</td>
-                                        <td>29.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Item Two</td>
-                                        <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                                        <td>19.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Item Three</td>
-                                        <td> Morbi faucibus arcu accumsan lorem.</td>
-                                        <td>29.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Item Four</td>
-                                        <td>Vitae integer tempus condimentum.</td>
-                                        <td>19.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Item Five</td>
-                                        <td>Ante turpis integer aliquet porttitor.</td>
-                                        <td>29.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Item Five</td>
-                                        <td>Ante turpis integer aliquet porttitor.</td>
-                                        <td>29.99</td>
-                                    </tr>
+                                    {% for task in tasks %}
+                                        <tr>
+                                            <td>{{ task.id }}</td>
+                                            <td>{{ task.task_name }}</td>
+                                            <td>{{ task.task_description }}</td>
+                                            <td>{{ task.task_price_equipment }} $</td>
+                                            <td>
+                                                {% if task.task_progress %}
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        {{form.as_p}}
+                                                        <button type="submit" class="button primary small fit">Confirm</button>
+                                                    </form>
+                                                {% else %}
+                                                    No info $
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ task.total_price }}</td>
+                                            <td>
+                                                <form method="post">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                                                    {% if task.task_status %}
+                                                        {% if task.task_progress %}
+                                                            <button class="button fit" disabled>Done</button>
+                                                        {% else %}
+                                                            <button class="button fit" disabled>Done</button>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        {% if task.task_progress %}
+                                                            <button class="button" name="finish_task" type="submit">Finish a task</button>
+                                                        {% else %}
+                                                            <button class="primary button" name="start_task" type="submit">Start</button>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
-
-                        </div>
-                    </div>
                     </section>
-
-				<!-- Footer -->
-                    {% include 'service/constant_templates/service_contacts.html' %}
 			</div>
+            <!-- Footer -->
+                    {% include 'service/constant_templates/service_contacts.html' %}
 
 		<!-- Scripts -->
 			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>

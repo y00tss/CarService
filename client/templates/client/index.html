@@ -15,63 +15,53 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="{% static 'CarServiceMain/images/logo.png' %}" alt="" /></span>
-						<h1>Car Service</h1>
-						<p>"Enjoy our service"</p>
-					</header>
+					{% include 'client/constant_templates/header.html' %}
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
 							<li><a href="{% url 'home' %}" class="active">Home</a></li>
 							<li><a href="{% url 'manuals' %}">Manuals</a></li>
-							<li><a href="{% url 'tasks' %}">Tasks</a></li>
-							<li><a href="{% url 'shop' %}">Shop</a></li>
+							<li><a href="{% url 'order' %}">Make an order</a></li>
                             <li><a href="{% url 'profile' %}">Profile</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
-
 						<!-- Introduction -->
 							<section id="intro" class="main">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>Mechanic's Daily Checklist:</h2>
+											<h2>About Us</h2>
 										</header>
-										<p>
-                                            <b>Safety First: </b><br>
-                                            Wear PPE and follow safety guidelines.
-                                            Keep workspace hazard-free.
-                                            Report safety issues promptly.
-                                            <br>
-                                            <br>
-                                            Quality & Responsibility: <br>
-                                            Prioritize tasks and focus on details.
-                                            Communicate transparently.
-                                            Adhere to schedules and procedures.
-                                            <br>
-                                            <br>
-                                            Company Reputation: <br>
-                                            Maintain professionalism and appearance.
-                                            Provide excellent customer service.
-                                            Uphold quality standards and ethics.</p>
-										<ul class="actions">
-											<li><a href="/tasks/" class="button">Let`s work!</a></li>
-										</ul>
+										<p>SF Car Service is a trusted and expert car repair service based in Odesa. Specializing in a wide range of automotive repairs, they offer skilled mechanics and state-of-the-art equipment to ensure your vehicle gets the best care possible. From routine maintenance to complex repairs, SF Car Service is dedicated to getting you back on the road safely and efficiently. With a focus on quality workmanship, transparent pricing, and exceptional customer service, they are the go-to destination for all your car repair needs in Odesa.</p>
 									</div>
-									<span class="image"><img src="{% static 'CarServiceMain/images/warning.png' %}" alt="" /></span>
+									<span class="image"><img src="{% static 'CarServiceMain/images/factory.jpg' %}" alt="" /></span>
 								</div>
 							</section>
 
-
-				<!-- Footer -->
-                        {% include 'client/constant_templates/bottom.html' %}
+                        <!-- Service Staff -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Our Staff</h2>
+								</header>
+								<ul class="features">
+                                    {% for item in mechanics %}
+									<li>
+										<div class="staff-member">
+                                            <img src="{{ item.avatar.url }}" alt="Staff Member {{ item.id }}">
+                                        </div>
+										<h3>{{ item.first_name }} {{ item.last_name }}</h3>
+										<p>{{ item.description }}</p>
+									</li>
+                                    {% endfor %}
+								</ul>
+							</section>
 			</div>
-
+                <!-- Footer -->
+                    {% include 'client/constant_templates/bottom.html' %}
 		<!-- Scripts -->
 			<script src="{% static 'CarServiceMain/assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'CarServiceMain/assets/js/jquery.scrollex.min.js' %}"></script>
@@ -81,7 +71,7 @@
 			<script src="{% static 'CarServiceMain/assets/js/util.js' %}"></script>
 			<script src="{% static 'CarServiceMain/assets/js/main.js' %}"></script>
             <script src="{% static 'authorisation/JavaScript/maps.js' %}"></script>
-            <script src="{% static 'authorisation/JavaScript/authorisation.js' %}"></script>
+
 
 	</body>
 </html>
