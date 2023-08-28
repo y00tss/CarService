@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from authorisation.forms import SignUpForm, ProfileEditForm
 from authorisation.models import CustomUserUser
 
-'''Registration and authorisation'''
+# -----------------------------------------Registration and authorisation-----------------------------------------------
 
 
 def authorisation(request):
@@ -24,12 +24,10 @@ def signup(request):
     return render(request, 'registration/registration.html', {'form': form, 'title': 'Registration'})
 
 
-'''Registration and authorisation'''
+# -----------------------------------------Registration and authorisation-----------------------------------------------
 
-'''-----------------------------------------------------------------------------------------------------------'''
 
-'''Profile'''
-
+# -----------------------------------------------------Profile----------------------------------------------------------
 
 def edit_profile(request):
     if request.method == 'POST':
@@ -46,15 +44,11 @@ def profile_view(request):
     return render(request, 'registration/profile.html', {'title': 'Profile'})
 
 
-'''Profile'''
+# -----------------------------------------------------Profile----------------------------------------------------------
 
-'''-----------------------------------------------------------------------------------------------------------'''
-
-'''Closed access'''
-
+# -----------------------------------------------------Closed access----------------------------------------------------
 
 def closed_access(request):
     return render(request, 'registration/closed_access.html', {'title': 'Closed Access'})
 
-
-'''Closed access'''
+# -----------------------------------------------------Closed access----------------------------------------------------

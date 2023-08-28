@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from authorisation.views import closed_access
 from django.urls import reverse
 
-
+# ----------------------------------------MECHANIC CHECK----------------------------------------
 def mechanic_required(view_func):
     @wraps(view_func)
     def _wrapped_view(request, *args, **kwargs):
@@ -13,3 +13,5 @@ def mechanic_required(view_func):
             return redirect(reverse('closed_access'))
 
     return _wrapped_view
+
+# ----------------------------------------MECHANIC CHECK----------------------------------------

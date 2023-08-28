@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from authorisation.models import CustomUserUser
 
-'''Registration form'''
+# ------------------------------------------------Registration FORM------------------------------------------------
 
 
 class SignUpForm(UserCreationForm):
@@ -15,8 +15,10 @@ class SignUpForm(UserCreationForm):
         model = CustomUserUser
         fields = ('username', 'telegram_username', 'password1', 'password2')
 
+# ------------------------------------------------Registration FORM------------------------------------------------
 
-'''Edition form'''
+
+# ---------------------------------------------------EDITION FORM---------------------------------------------------
 
 
 class ProfileEditForm(forms.ModelForm):
@@ -24,3 +26,5 @@ class ProfileEditForm(forms.ModelForm):
         model = CustomUserUser
         fields = ('avatar', 'first_name', 'last_name', 'telegram_username', 'email', 'description')
 
+
+# ---------------------------------------------------EDITION FORM---------------------------------------------------
